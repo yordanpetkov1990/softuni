@@ -1,3 +1,5 @@
+package FirstStepsInProgrammingJava;
+
 import java.util.Scanner;
 
 public class YardGreening {

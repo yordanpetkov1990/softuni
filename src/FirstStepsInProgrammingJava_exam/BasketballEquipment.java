@@ -1,3 +1,5 @@
+package FirstStepsInProgrammingJava_exam;
+
 import java.util.Scanner;
 
 public class BasketballEquipment {
