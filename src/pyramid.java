@@ -4,15 +4,13 @@ public class pyramid {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int height = Integer.parseInt(scan.nextLine());
-        for(int i =0;i <height;i++){
-            for(int spaces=height-1;spaces >= i;spaces--){
-                System.out.printf(" ");
+        for(int i=1;i<=height;i++)
+        {
+            for(int y = 1;y<=i;y++)
+            {
+                System.out.printf("%d",y);
             }
-            for(int y = 0;y <=i;y++){
-                    System.out.printf("#");
-            }
-            System.out.printf("\n");
-
+            System.out.println("");
 
         }
     }
