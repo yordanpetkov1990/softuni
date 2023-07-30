@@ -1,11 +1,10 @@
+package fundamentals.FinalExamPreparation_exam;
 
-
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class test {
+public class Task03 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int n = Integer.parseInt(scan.nextLine());
@@ -59,32 +58,31 @@ public class test {
                     break;
                 case"Recharge":
                     int amount = Integer.parseInt(tokens[2]);
-                    int startValue =heroesAndMP.get(heroName);
-                    if(startValue<200){
-                        heroesAndMP.put(heroName,heroesAndMP.get(heroName) + amount);
-                    }
-
-
-                    if(heroesAndMP.get(heroName) >= 200){
-                        amount = 200 - startValue;
+                    int currentMP = heroesAndMP.get(heroName);
+                    int startingMP = currentMP;
+                    currentMP+=amount;
+                    if(currentMP > 200){
                         heroesAndMP.put(heroName,200);
+                        System.out.printf("%s recharged for %d MP!\n",heroName,200-startingMP);
                     }
-                    System.out.printf("%s recharged for %d MP!\n",heroName,amount);
+                    else{
+                        heroesAndMP.put(heroName,currentMP);
+                        System.out.printf("%s recharged for %d MP!\n",heroName,currentMP-startingMP);
+                    }
                     break;
                 case"Heal":
                     int amountToHeal = Integer.parseInt(tokens[2]);
-                    int startValueToHeal =heroesAndHP.get(heroName);
-                    if(startValueToHeal<100){
-                        heroesAndHP.put(heroName,heroesAndHP.get(heroName) + amountToHeal);
-                    }
-                  
-                    if(heroesAndHP.get(heroName) >= 100){
-                        amountToHeal = 100 - startValueToHeal;
+                    int currentHP = heroesAndHP.get(heroName);
+                    int startingHP = currentHP;
+                    currentHP+=amountToHeal;
+                    if(currentHP > 100){
                         heroesAndHP.put(heroName,100);
+                        System.out.printf("%s healed for %d HP!\n",heroName,100-startingHP);
                     }
-                    System.out.printf("%s healed for %d HP!\n",heroName,amountToHeal);
-
-
+                    else{
+                        heroesAndHP.put(heroName,currentHP);
+                        System.out.printf("%s healed for %d HP!\n",heroName,currentHP-startingHP);
+                    }
                     break;
 
             }
