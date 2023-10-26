@@ -47,7 +47,7 @@ public class VehicleCatalogue {
         while(!model.equals("Close the Catalogue")){
             for(VehicleCatalogue vehicle:vehicles){
                 if(vehicle.getModel().equals(model)){
-                    String typeveh = vehicle.getTypeOfVehicle().equals("car") ? "Car" : "Truck";
+                    String typeveh = vehicle.getTypeOfVehicle().equals("car") ? "Test.Car" : "Truck";
                     System.out.printf("Type: %s\n" +
                             "Model: %s\n" +
                             "Color: %s\n" +

@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class ReadFile {
     public static void main(String[] args) {
-        String path = "C:\\Users\\qnida\\IdeaProjects\\softuni\\src\\advanced.StreamsFilesAndDirectories\\input.txt";
+        String path = "C:\\Users\\qnida\\IdeaProjects\\softuni\\src\\advanced\\StreamsFilesAndDirectories\\input.txt";
         try {
             FileInputStream fileInputStream = new FileInputStream(path);
             int oneByte = fileInputStream.read();
