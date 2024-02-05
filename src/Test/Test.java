@@ -1,35 +1,37 @@
 package Test;
 
-import java.util.Scanner;
+class Counter {
+    private int count = 0;
 
-public class Test {
-    public static void main(String[] args) {
+    public synchronized void increment() {
+        count++;
+    }
 
-        Scanner scan = new Scanner(System.in);
-        int n = Integer.parseInt(scan.nextLine());
+    public synchronized void decrement() {
+        count--;
+    }
 
-
-        for (int i = 0; i < n; i++) {
-            for (int j = i+1; j < n; j++) {
-                System.out.print(" ");
-            }
-            for (int j = n-i; j <=n ; j++) {
-                System.out.print("*");
-                System.out.print(" ");
-            }
-            System.out.println();
-        }
-        for (int i = n-1; i > 0 ; i--) {
-            for (int j = n; j > i ; j--) {
-                System.out.print(" ");
-            }
-            for (int j = i; j > 0 ; j--) {
-                System.out.print("*");
-                System.out.print(" ");
-            }
-            System.out.println();
-        }
-
-
+    public synchronized int getCount() {
+        return count;
     }
 }
+
+class MyRunnable implements Runnable {
+    private Counter counter;
+
+    public MyRunnable(Counter counter) {
+        this.counter = counter;
+    }
+
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            synchronized (counter){
+                counter.increment();
+                System.out.println("Нишка MyRunnable: " + counter.getCount());
+            }
+
+        }
+    }
+}
+
+
